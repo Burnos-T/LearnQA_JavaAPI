@@ -7,7 +7,11 @@ import java.util.Map;
 
 public class Ex5 {
     @Test
-    public void Ex53() {
+    //сделать GET-запрос,
+    // Полученный JSON необходимо распечатать и изучить.
+    // Мы увидим, что это данные с сообщениями и временем, когда они были написаны.
+    // Наша задача вывести текст второго сообщения.
+    public void Ex5() {
         JsonPath response = RestAssured
                 .get("https://playground.learnqa.ru/api/get_json_homework")
                 .jsonPath();
