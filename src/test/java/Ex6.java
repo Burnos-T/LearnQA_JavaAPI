@@ -4,10 +4,20 @@ import org.junit.jupiter.api.Test;
 
 public class Ex6 {
     @Test
+    //Необходимо написать тест, который создает
+    // GET-запрос на адрес: https://playground.learnqa.ru/api/long_redirect
+    //С этого адреса должен происходит редирект на другой адрес.
+    // Наша задача — распечатать адрес, на который редиректит указанный URL.
     public void Ex6(){
         Response response = RestAssured
+                .given()
+                .redirects()
+                .follow(false)
+                .when()
                 .get("https://playground.learnqa.ru/api/long_redirect")
                 .andReturn();
-        response.prettyPrint();
+
+        String locationHeader = response.getHeader("Location");
+        System.out.println(locationHeader);
     }
 }
